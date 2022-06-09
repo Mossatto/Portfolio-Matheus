@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,100;1,300&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family:'Poppins', 'Times New Roman', Times, serif;
+    scroll-behavior: smooth;
+
+}
+
+a{
+    text-decoration: none;
+}
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: coverS;
+}
+p{
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem ;
+    letter-spacing: 0.05rem ;
+    color: rgb(0, 0, 0);
+}
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-title{
+    font-size: 4rem;
+    font-weight: 400;
+    color: #ff4500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    border: solid 2px orangered;
+    padding: 5px;
+}
+
+/*Sessão de apresentação*/
+
+#presentation{
+    background-image:url(/Portifólio\ 2.jpg);
+    background-size: cover;
+    background-position:top center;
+    position: relative;
+    z-index: 1;
+}
+
+#presentation h1:nth-child(1){
+    animation-delay: 1s;
+}
+#presentation h1:nth-child(2){
+    animation-delay: 2s;
+}
+#presentation h1:nth-child(3){
+    animation: text_reveal_name .5 ease forwards;
+    animation-delay: 2.5s;
+}
+#presentation h1{
+    display: block;
+    width: fit-content;
+    font-size: 5rem;
+    position: relative;
+    color: transparent;
+    animation: text-reveal .5s ease forwards;
+    animation-delay: 1.5s;
+}
+#presentation .cta{
+    display: inline-block;
+    padding: 10px 30px;
+    color:orangered ;
+    background-color:transparent ;
+    border: 2px solid orangered ;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2rem;
+    margin-top: 30px;
+    transition: .5s ease;
+    transition-property: background-color, color;
+}
+#presentation .cta:hover{
+    color: black;
+    font-weight: 400;
+    background-color: orangered;
+}
+
+#presentation h1:nth-child(1) span{
+    animation-delay: .5s;
+}
+#presentation h1:nth-child(2) span{
+    animation-delay: 1.5s;
+}
+#presentation h1:nth-child(3) span{
+    animation-delay: 2s;
+}
+
+#presentation h1 span{
+    position:absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    animation: text_reveal_box 1s ease;
+    animation-delay: .5s;
+    background-color: orangered;
+}
+#presentation::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: .5;
+    z-index: -1;
+}
+
+/*Sessão de portfólio*/
+
+#portfolio .portfolio{
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+#portfolio .portfolio header h1{
+    margin-bottom: 50px;
+}
+#portfolio .all-projects{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#portfolio .project-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+#portfolio .project-info{
+    padding: 30px;
+    flex-basis: 30%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(60deg, #f8ff9b 0%, #ff5100 100%);
+}
+#portfolio .project-info h1{
+    font-size: 4rem;
+    font-weight: 500;
+}
+#portfolio .project-info h2{
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+#portfolio .project-img{
+    flex-basis: 50%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+#portfolio .project-img:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    opacity: .6;
+}
+#portfolio .project-item:hover .project-img img{
+    transform: scale(1.1);
+}
+#portfolio .project-img img{
+    transition: 0.5s ease transform;
+}
+/*Sessão de keyframes*/
+
+@keyframes text_reveal_name{
+    100%{
+        color: orangered;
+        font-weight: 500px;
+    }
+}
+@keyframes text-reveal{
+    100%{
+        color: white;
+    }
+}
+@keyframes text_reveal_box{
+    50%{
+        width: 100%;
+        left: 0;
+    }
+    100%{
+        width: 0;
+        left: 100%;
+    }
+}
+
+/*Media query*/
